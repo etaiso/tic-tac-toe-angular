@@ -15,8 +15,8 @@ export class GameBoardComponent implements OnInit {
     this.tiles = this.gameController.tiles;
   }
 
-  onTileClicked(tileId: string) {
-    this.gameController.playTurn(tileId);
+  onTileClicked(tileValue: number) {
+    this.gameController.playTurn(tileValue);
   }
 
 }

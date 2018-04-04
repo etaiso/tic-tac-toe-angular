@@ -1,7 +1,7 @@
 <div class="game-board">
-  <mat-grid-list cols="3" rowHeight="100px">
+  <mat-grid-list cols="3" rowHeight="100px" gutterSize="3px">
     <mat-grid-tile class="board-tile" *ngFor="let tile of tiles">
-      <app-game-board-tile [icon]="tile.icon" [isMarked]="tile.marked" (click)="onTileClicked(tile.id)"></app-game-board-tile>
+      <app-game-board-tile [type]="tile.type" [isMarked]="tile.marked" (click)="onTileClicked(tile.value)"></app-game-board-tile>
     </mat-grid-tile>
   </mat-grid-list>
 </div>

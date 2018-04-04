@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GameBoardComponent } from './game-board.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { GameBoardTileComponent } from '../game-board-tile/game-board-tile.component';
+import { GameControllerService } from '../../services/game-controller/game-controller.service';
+import { GameLogicService } from '../../services/game-logic/game-logic.service';
 
 describe('GameBoardComponent', () => {
   let component: GameBoardComponent;
@@ -8,7 +12,17 @@ describe('GameBoardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GameBoardComponent ]
+      declarations: [
+        GameBoardComponent,
+        GameBoardTileComponent
+      ],
+      imports: [
+        MatGridListModule
+      ],
+      providers: [
+        GameControllerService,
+        GameLogicService
+      ]
     })
     .compileComponents();
   }));
