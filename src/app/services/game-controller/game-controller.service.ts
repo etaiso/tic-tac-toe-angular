@@ -34,7 +34,7 @@ export class GameControllerService {
     if (tile.isMarked()) {
       return;
     }
-    const player = this.players[this.currentPlayerIndex];
+    const player = this.getCurrentPlayer();
     tile.mark(player);
     player.addTileValue(tileValue);
 
@@ -54,5 +54,9 @@ export class GameControllerService {
     this.players = PlayersFactory.create();
     this.currentPlayerIndex = 0;
     this.tilesSubject.next(this.tiles);
+  }
+
+  getCurrentPlayer(): Player {
+    return this.players[this.currentPlayerIndex];
   }
 }

@@ -12,4 +12,8 @@ export class AppComponent {
   onResetClick() {
     this.gameController.newGame();
   }
+
+  get currentPlayerName(): string {
+    return this.gameController.getCurrentPlayer().name;
+  }
 }
