@@ -1,3 +1,4 @@
+import { BoardTile } from './../../models/board-tile';
 import { Component, OnInit } from '@angular/core';
 import { GameControllerService } from '../../services/game-controller/game-controller.service';
 
@@ -7,12 +8,14 @@ import { GameControllerService } from '../../services/game-controller/game-contr
   styleUrls: ['./game-board.component.scss']
 })
 export class GameBoardComponent implements OnInit {
-  private tiles;
+  private tiles: BoardTile[];
 
   constructor(private gameController: GameControllerService) { }
 
   ngOnInit() {
-    this.tiles = this.gameController.tiles;
+    this.gameController.tilesSubject.subscribe(tiles => {
+      this.tiles = tiles;
+    });
   }
 
   onTileClicked(tileValue: number) {

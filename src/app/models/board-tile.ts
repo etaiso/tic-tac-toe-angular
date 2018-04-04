@@ -2,7 +2,8 @@ import { Player } from './player';
 export enum ITileType {
   Empty,
   Cross,
-  Circle
+  Circle,
+  Blocked
 }
 
 export class BoardTile {
@@ -23,6 +24,11 @@ export class BoardTile {
 
   isMarked() {
     return this.marked;
+  }
+
+  block() {
+    this.type = ITileType.Blocked;
+    this.marked = true;
   }
 }
 
