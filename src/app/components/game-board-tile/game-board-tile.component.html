@@ -1,0 +1,4 @@
+<div class="tile-content noselect" [ngClass]="{'marked': isMarked, 'unmarked': !isMarked}">
+  <span *ngIf="type == tileType.Cross">X</span>
+  <span *ngIf="type == tileType.Circle">O</span>
+</div>
