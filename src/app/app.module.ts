@@ -7,13 +7,16 @@ import { GameBoardComponent } from './components/game-board/game-board.component
 import { GameControllerService } from './services/game-controller/game-controller.service';
 import { GameBoardTileComponent } from './components/game-board-tile/game-board-tile.component';
 import { GameLogicService } from './services/game-logic/game-logic.service';
+import { GameNotificationsService } from './services/game-notifications/game-notifications.service';
+import { GameNotifierComponent } from './components/game-notifier/game-notifier.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     GameBoardComponent,
-    GameBoardTileComponent
+    GameBoardTileComponent,
+    GameNotifierComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,8 @@ import { GameLogicService } from './services/game-logic/game-logic.service';
   ],
   providers: [
     GameControllerService,
-    GameLogicService
+    GameLogicService,
+    GameNotificationsService
   ],
   bootstrap: [AppComponent]
 })

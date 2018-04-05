@@ -4,8 +4,8 @@ import { Player } from "../models/player";
 export class PlayersFactory {
   static create(): Player[] {
     return [
-      PlayerFactory.createPlayerA('John'),
-      PlayerFactory.createPlayerB('Anna')
+      PlayerFactory.createPlayerA('Player A'),
+      PlayerFactory.createPlayerB('Player B')
     ];
   }
 }

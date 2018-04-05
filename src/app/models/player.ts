@@ -22,7 +22,7 @@ export class Player {
     this.tilesValue |= value;
   }
 
-  isPlayerWin() {
+  hasWon() {
     return this.gameLogic.checkForWin(this.tilesValue);
   }
 }
