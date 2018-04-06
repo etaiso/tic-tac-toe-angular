@@ -55,7 +55,6 @@ export class GameControllerService {
     let winningTiles = player.getWinningTiles();
 
     if (winningTiles.length) {
-      player.increaseWins();
       this.boldWinningTiles(winningTiles);
       this.blockRemainingTiles();
       this.notifyWin();

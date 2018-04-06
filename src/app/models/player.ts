@@ -6,17 +6,12 @@ import { Injectable } from '@angular/core';
 export class Player {
   public name: string;
   public tileType: ITileType;
-  private wins: number = 0;
   private tilesAggregatedValue: number = 0 ;
   private gameLogic: GameLogicService = new GameLogicService();
 
   constructor(name: string, tileType: ITileType) {
     this.name = name;
     this.tileType = tileType;
-  }
-
-  increaseWins() {
-    this.wins++;
   }
 
   resetTilesAggregation() {
