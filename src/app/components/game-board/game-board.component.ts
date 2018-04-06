@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs/Subscription';
   styleUrls: ['./game-board.component.scss']
 })
 export class GameBoardComponent implements OnInit, OnDestroy {
-  private tiles: BoardTile[];
+  public tiles: BoardTile[];
   private subscription: Subscription;
 
   constructor(private gameController: GameControllerService) { }
