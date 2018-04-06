@@ -20,12 +20,15 @@ export class GameBoardComponent implements OnInit, OnDestroy {
     });
   }
 
-  onTileClicked(tileValue: number) {
-    this.gameController.playTurn(tileValue);
+  onTileClicked(tileId: number) {
+    this.gameController.playTurn(tileId);
+  }
+
+  onResetClick() {
+    this.gameController.newGame();
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
-
 }

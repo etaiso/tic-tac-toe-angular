@@ -19,16 +19,15 @@ export class GameLogicService {
     [4, 16, 64]
   ];
 
-  // WIN_NUMBERS is the calculated value of each array in the WIN_MATRIX.
-  // the calculated value is an aggregation of the OR operation (bitwsie).
-  private WIN_NUMBERS = this.WIN_MATRIX.map(a => a.reduce((acc, cur) => acc | cur))
+  // WIN_AGGREGATED_VALUES is the calculated value of each array in the WIN_MATRIX.
+  // the calculated value is an aggregation with OR operation (bitwsie).
+  // For e.g: [1, 2, 4] will be reduced to 7 (which is the result of 1 | 2 | 4).
+  private WIN_AGGREGATED_VALUES = this.WIN_MATRIX.map(a => a.reduce((acc, cur) => acc | cur))
 
   constructor() {}
 
   checkForWin(tilesValue: number): number[] {
-    const winNumberIndex = this.WIN_NUMBERS.findIndex(num => (num & tilesValue) == num);
-    if (winNumberIndex >= 0) {
-      return this.WIN_MATRIX[winNumberIndex];
-    }
+    const winNumberIndex = this.WIN_AGGREGATED_VALUES.findIndex(num => (num & tilesValue) == num);
+    return winNumberIndex >= 0 ? this.WIN_MATRIX[winNumberIndex] : [];
   }
 }

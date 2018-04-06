@@ -1,1 +1,3 @@
-<h3 class="game-notificatons" [ngClass]="{'win-message': notification.type == notificationType.Win}">{{ notification.message }}</h3>
+<h3 class="game-notificatons" [ngClass]="{'cross': notification.type == notificationType.Cross, 'circle': notification.type == notificationType.Circle}">
+  {{ notification.message }}
+</h3>

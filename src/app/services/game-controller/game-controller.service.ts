@@ -28,28 +28,35 @@ export class GameControllerService {
   }
 
   private blockRemainingTiles() {
-    this.tiles.filter(tile => !tile.isMarked()).forEach(tile => tile.block());
+    this.tiles.filter(tile => !tile.marked).forEach(tile => tile.block());
   }
 
-  playTurn(tileValue: number) {
-    const tileIndex = this.tiles.findIndex(tile => tile.value === tileValue);
+  private boldWinningTiles(tileIds: number[]) {
+    this.tiles.filter(tile => tileIds.includes(tile.id)).forEach(tile => {
+      tile.bold();
+    });
+  }
+
+  playTurn(tileId: number) {
+    const tileIndex = this.tiles.findIndex(tile => tile.id === tileId);
     const tile = this.tiles[tileIndex];
 
     // if tile is alreayd marked, skip
-    if (tile.isMarked()) {
+    if (tile.marked) {
       return;
     }
 
     const player = this.getCurrentPlayer();
     tile.mark(player);
-    player.addTileValue(tileValue);
+    player.aggregateTile(tileId);
     this.turnNumber++;
 
-    // check if current player won
-    let x;
-    if (x = player.hasWon()) {
-      console.log('winning tiles: ', x);
+    // check if current player has won
+    let winningTiles = player.getWinningTiles();
+
+    if (winningTiles.length) {
       player.increaseWins();
+      this.boldWinningTiles(winningTiles);
       this.blockRemainingTiles();
       this.notifyWin();
     // check if it's a tie
@@ -71,11 +78,11 @@ export class GameControllerService {
   }
 
   private notifyPlayerTurn() {
-    this.gameNotifications.playerTurn(this.getCurrentPlayer().name);
+    this.gameNotifications.playerTurn(this.getCurrentPlayer());
   }
 
   private notifyWin() {
-    this.gameNotifications.declareWin(this.getCurrentPlayer().name);
+    this.gameNotifications.declareWin(this.getCurrentPlayer());
   }
 
   private getCurrentPlayer(): Player {

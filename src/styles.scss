@@ -2,27 +2,50 @@
 
 @import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
 @import url('https://fonts.googleapis.com/css?family=Mina');
-
-html {
-  background-color: #0c0d23;
-  font-family: 'Mina', sans-serif;
+@mixin vertical-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-h1, h2, h3, p {
-  color: #ffffff;
+html {
+    background-color: #0c0d23;
+    font-family: 'Mina', sans-serif;
+}
+
+h1,
+h2,
+h3,
+p {
+    color: #ffffff;
 }
 
 .btn {
-    color: #062713;
-    background: #93d098;
+    color: #ffffff;
+    background: #6e75c3;
+}
+
+.cross {
+    color: #acd237;
+}
+
+.circle {
+    color: #ea72e7;
 }
 
 .noselect {
-  -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
 }

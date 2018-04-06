@@ -3,7 +3,6 @@
     height: 100%;
     background: #3e415f;
     color: #ffffff;
-
     .marked {
         &:hover {
             cursor: default;
@@ -13,6 +12,19 @@
         &:hover {
             cursor: pointer;
             background: #acafd2;
+        }
+    }
+    .bolded {
+        animation-duration: 0.4s;
+        animation-fill-mode: forwards;
+        animation-name: popout;
+    }
+    @keyframes popout {
+        from {
+            transform: scale(1);
+        }
+        to {
+            transform: scale(1.7);
         }
     }
     .tile-content {

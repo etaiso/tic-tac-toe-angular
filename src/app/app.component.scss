@@ -1,11 +1,5 @@
-:host {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+@import './../styles';
 
-.reset-btn {
-    width: 100px;
-    margin-top: 10px;
+:host {
+    @include vertical-center();
 }

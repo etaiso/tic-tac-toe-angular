@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { GameControllerService } from './services/game-controller/game-controller.service';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +6,5 @@ import { GameControllerService } from './services/game-controller/game-controlle
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(private gameController: GameControllerService) {}
-
-  onResetClick() {
-    this.gameController.newGame();
-  }
+  constructor() {}
 }

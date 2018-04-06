@@ -1,5 +1,15 @@
+@import './../../../styles';
+:host {
+    @include vertical-center();
+}
+
 .game-board {
     width: 300px;
+}
+
+.reset-btn {
+    width: 100px;
+    margin-top: 18px;
 }
 
 // .board-tile {

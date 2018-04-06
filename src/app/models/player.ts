@@ -4,26 +4,31 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class Player {
+  public name: string;
+  public tileType: ITileType;
   private wins: number = 0;
-  private tilesValue: number = 0 ;
+  private tilesAggregatedValue: number = 0 ;
   private gameLogic: GameLogicService = new GameLogicService();
 
-  constructor(public name: string, public tileType: ITileType) {}
+  constructor(name: string, tileType: ITileType) {
+    this.name = name;
+    this.tileType = tileType;
+  }
 
   increaseWins() {
     this.wins++;
   }
 
-  resetTileValue() {
-    this.tilesValue = 0;
+  resetTilesAggregation() {
+    this.tilesAggregatedValue = 0;
   }
 
-  addTileValue(value: number) {
-    this.tilesValue |= value;
+  aggregateTile(value: number) {
+    this.tilesAggregatedValue |= value;
   }
 
-  hasWon() {
-    return this.gameLogic.checkForWin(this.tilesValue);
+  getWinningTiles(): number[] {
+    return this.gameLogic.checkForWin(this.tilesAggregatedValue);
   }
 }
 

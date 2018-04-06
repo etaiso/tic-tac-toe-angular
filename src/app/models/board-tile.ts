@@ -1,4 +1,5 @@
 import { Player } from './player';
+
 export enum ITileType {
   Empty,
   Cross,
@@ -7,10 +8,14 @@ export enum ITileType {
 }
 
 export class BoardTile {
+  public id: number;
+  public marked = false;
+  private bolded = false;
   private type = ITileType.Empty;
-  private marked = false;
 
-  constructor(public value: number) {}
+  constructor(id: number) {
+    this.id = id;
+  }
 
   mark(player: Player) {
     this.type = player.tileType;
@@ -22,8 +27,8 @@ export class BoardTile {
     this.marked = false;
   }
 
-  isMarked() {
-    return this.marked;
+  bold() {
+    this.bolded = true;
   }
 
   block() {
@@ -33,7 +38,7 @@ export class BoardTile {
 }
 
 export class BoardTileFactory {
-  static create(value: number) {
-    return new BoardTile(value);
+  static create(id: number) {
+    return new BoardTile(id);
   }
 }

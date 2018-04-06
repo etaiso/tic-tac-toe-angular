@@ -1,4 +1,5 @@
-<div class="tile-content noselect" [ngClass]="{'marked': isMarked, 'unmarked': !isMarked}">
-  <span *ngIf="type == tileType.Cross">X</span>
-  <span *ngIf="type == tileType.Circle">O</span>
+<div class="tile-content noselect"
+    [ngClass]="{'marked': isMarked, 'unmarked': !isMarked, 'bolded': bolded, 'cross': type == tileType.Cross, 'circle': type == tileType.Circle}">
+  <mat-icon *ngIf="type == tileType.Cross" svgIcon="cross"></mat-icon>
+  <mat-icon *ngIf="type == tileType.Circle" svgIcon="circle"></mat-icon>
 </div>

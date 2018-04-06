@@ -1,10 +1,13 @@
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { Player } from '../../models/player';
+import { ITileType } from '../../models/board-tile';
 
 export enum GameNotificationType {
   Normal,
-  Win,
+  Cross,
+  Circle,
   Tie
 };
 
@@ -20,12 +23,12 @@ export class GameNotificationsService {
 
   constructor() { }
 
-  playerTurn(playerName: string) {
-    this.publishMessage({ message: `${playerName}'s turn`, type: GameNotificationType.Normal});
+  playerTurn(player: Player) {
+    this.publishMessage({ message: `${player.name}'s turn`, type: (player.tileType === ITileType.Cross) ? GameNotificationType.Cross : GameNotificationType.Circle });
   }
 
-  declareWin(playerName: string) {
-    this.publishMessage({ message: `${playerName} won this round!`, type: GameNotificationType.Win });
+  declareWin(player: Player) {
+    this.publishMessage({ message: `${player.name} won the round!`, type: (player.tileType === ITileType.Cross) ? GameNotificationType.Cross : GameNotificationType.Circle });
   }
 
   declareTie() {
