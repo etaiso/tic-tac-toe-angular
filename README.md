@@ -2,6 +2,8 @@
 
 Tic Tac Toe game written in Angular 5, TypeScript and Material design.
 
+![Game-image](https://github.com/etaiso/tic-tac-toe-angular/blob/master/src/assets/tic-tac-go.png)
+
 ## Run app
 1. Run `npm install`
 2. Run `ng serve`
