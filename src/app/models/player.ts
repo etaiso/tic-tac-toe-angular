@@ -32,7 +32,7 @@ export class Player {
   }
 }
 
-export class PlayerFactory {
+export class PlayerCreator {
   static createPlayerA(name: string) {
     return new Player(name, ITileType.Cross);
   }

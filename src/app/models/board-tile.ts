@@ -37,7 +37,7 @@ export class BoardTile {
   }
 }
 
-export class BoardTileFactory {
+export class BoardTileCreator {
   static create(id: number) {
     return new BoardTile(id);
   }

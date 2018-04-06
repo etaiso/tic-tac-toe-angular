@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { ITileType, BoardTileFactory, BoardTile } from '../../models/board-tile';
+import { ITileType, BoardTileCreator, BoardTile } from '../../models/board-tile';
 import { GameLogicService } from '../game-logic/game-logic.service';
-import { Player, PlayerFactory } from '../../models/player';
+import { Player, PlayerCreator } from '../../models/player';
 import { TilesFactory } from '../../factories/tiles.factory';
 import { PlayersFactory } from '../../factories/players.factory';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
