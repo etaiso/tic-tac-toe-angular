@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GameNotifierComponent } from './game-notifier.component';
+import { GameNotificationsService } from '../../services/game-notifications/game-notifications.service';
 
 describe('GameNotifierComponent', () => {
   let component: GameNotifierComponent;
@@ -8,7 +9,12 @@ describe('GameNotifierComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GameNotifierComponent ]
+      declarations: [
+        GameNotifierComponent
+      ],
+      providers: [
+        GameNotificationsService
+      ]
     })
     .compileComponents();
   }));

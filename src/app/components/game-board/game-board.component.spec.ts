@@ -5,6 +5,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { GameBoardTileComponent } from '../game-board-tile/game-board-tile.component';
 import { GameControllerService } from '../../services/game-controller/game-controller.service';
 import { GameLogicService } from '../../services/game-logic/game-logic.service';
+import { MatIconModule } from '@angular/material';
+import { GameNotificationsService } from '../../services/game-notifications/game-notifications.service';
 
 describe('GameBoardComponent', () => {
   let component: GameBoardComponent;
@@ -17,11 +19,13 @@ describe('GameBoardComponent', () => {
         GameBoardTileComponent
       ],
       imports: [
-        MatGridListModule
+        MatGridListModule,
+        MatIconModule
       ],
       providers: [
         GameControllerService,
-        GameLogicService
+        GameLogicService,
+        GameNotificationsService
       ]
     })
     .compileComponents();

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GameBoardTileComponent } from './game-board-tile.component';
+import { MatIconModule } from '@angular/material';
 
 describe('GameBoardTileComponent', () => {
   let component: GameBoardTileComponent;
@@ -8,7 +9,12 @@ describe('GameBoardTileComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GameBoardTileComponent ]
+      declarations: [
+        GameBoardTileComponent
+      ],
+      imports: [
+        MatIconModule
+      ]
     })
     .compileComponents();
   }));
